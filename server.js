@@ -65,7 +65,7 @@ app.get("/logos", async (req, res) => {
 
   try {
     const response = await axios.get(
-      process.env.BENZINGA_API + "/api/v2/logos/search",
+      process.env.BENZINGA_API + "/v2/logos/search",
       {
         params: {
           search_keys,
