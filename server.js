@@ -1,9 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const corsOptions = {
+  origin: "https://benzinga-widget.vercel.app", // Allow requests only from your frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+// Enable CORS for the API routes
+app.use(cors(corsOptions));
 
 // Middleware to validate secret token
 app.use((req, res, next) => {
